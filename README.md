@@ -67,4 +67,23 @@ Troubleshooting
 - If scraping fails with network errors, check your network or try again later.
 - If parsing returns empty `clubs`, inspect the raw HTML in a browser and adjust selectors in `lib/footmercato.js`.
 
+Wrapper script: `get_data.sh`
+
+For convenience a small shell wrapper `get_data.sh` is provided to call the scraper
+for Transfermarkt rounds. It accepts `SEASON MAX [MIN]`. If `MIN` is omitted it
+defaults to `MAX`.
+
+Examples:
+
+```bash
+# scrape season 2025, rounds 1..14
+./get_data.sh 2025 14 1
+
+# scrape season 2025, round 14 only
+./get_data.sh 2025 14
+```
+
+The wrapper uses `npm run scrape` when `npm` is available, otherwise falls back
+to `node scrape.js`.
+
 License: MIT
