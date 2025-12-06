@@ -1,0 +1,16 @@
+{
+  "name": "bf_foot_scraper",
+  "version": "0.1.0",
+  "description": "Scraper that fetches Ligue 1 standings from Foot Mercato and stores snapshots in a flat JSON DB.",
+  "main": "scrape.js",
+  "scripts": {
+    "scrape": "node scrape.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.5.0",
+    "cheerio": "^1.0.0-rc.12",
+    "date-fns": "^2.30.0"
+  }
+}
