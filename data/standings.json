@@ -443,6 +443,228 @@
           "goals_against": 8
         }
       ]
+    },
+    {
+      "date": "2025-12-06T18:43:00.878Z",
+      "source": "https://www.footmercato.net/france/ligue-1/classement",
+      "clubs": [
+        {
+          "position": 1,
+          "name": "Lens",
+          "points": 1,
+          "played": 34,
+          "goal_difference": 15,
+          "wins": 13,
+          "draws": 11,
+          "losses": 1,
+          "goals_for": 3,
+          "goals_against": 26
+        },
+        {
+          "position": 2,
+          "name": "PSG",
+          "points": null,
+          "played": 30,
+          "goal_difference": 14,
+          "wins": 15,
+          "draws": 9,
+          "losses": 3,
+          "goals_for": 2,
+          "goals_against": 27
+        },
+        {
+          "position": 3,
+          "name": "Marseille",
+          "points": null,
+          "played": 29,
+          "goal_difference": 15,
+          "wins": 20,
+          "draws": 9,
+          "losses": 2,
+          "goals_for": 4,
+          "goals_against": 35
+        },
+        {
+          "position": 4,
+          "name": "Lille",
+          "points": null,
+          "played": 29,
+          "goal_difference": 15,
+          "wins": 12,
+          "draws": 9,
+          "losses": 2,
+          "goals_for": 4,
+          "goals_against": 29
+        },
+        {
+          "position": 5,
+          "name": "Rennes",
+          "points": null,
+          "played": 24,
+          "goal_difference": 14,
+          "wins": 6,
+          "draws": 6,
+          "losses": 6,
+          "goals_for": 2,
+          "goals_against": 24
+        },
+        {
+          "position": 6,
+          "name": "Lyon",
+          "points": null,
+          "played": 24,
+          "goal_difference": 14,
+          "wins": 6,
+          "draws": 7,
+          "losses": 3,
+          "goals_for": 4,
+          "goals_against": 21
+        },
+        {
+          "position": 7,
+          "name": "Monaco",
+          "points": null,
+          "played": 23,
+          "goal_difference": 15,
+          "wins": 0,
+          "draws": 7,
+          "losses": 2,
+          "goals_for": 6,
+          "goals_against": 26
+        },
+        {
+          "position": 8,
+          "name": "Strasbourg",
+          "points": 1,
+          "played": 22,
+          "goal_difference": 15,
+          "wins": 5,
+          "draws": 7,
+          "losses": 1,
+          "goals_for": 7,
+          "goals_against": 25
+        },
+        {
+          "position": 9,
+          "name": "Toulouse",
+          "points": 1,
+          "played": 20,
+          "goal_difference": 15,
+          "wins": 2,
+          "draws": 5,
+          "losses": 5,
+          "goals_for": 5,
+          "goals_against": 21
+        },
+        {
+          "position": 10,
+          "name": "Brest",
+          "points": null,
+          "played": 19,
+          "goal_difference": 15,
+          "wins": -4,
+          "draws": 5,
+          "losses": 4,
+          "goals_for": 6,
+          "goals_against": 20
+        },
+        {
+          "position": 11,
+          "name": "Nice",
+          "points": null,
+          "played": 17,
+          "goal_difference": 14,
+          "wins": -7,
+          "draws": 5,
+          "losses": 2,
+          "goals_for": 7,
+          "goals_against": 19
+        },
+        {
+          "position": 12,
+          "name": "Angers",
+          "points": null,
+          "played": 16,
+          "goal_difference": 14,
+          "wins": -5,
+          "draws": 4,
+          "losses": 4,
+          "goals_for": 6,
+          "goals_against": 12
+        },
+        {
+          "position": 13,
+          "name": "Paris FC",
+          "points": null,
+          "played": 15,
+          "goal_difference": 14,
+          "wins": -5,
+          "draws": 4,
+          "losses": 3,
+          "goals_for": 7,
+          "goals_against": 21
+        },
+        {
+          "position": 14,
+          "name": "Le Havre",
+          "points": null,
+          "played": 14,
+          "goal_difference": 14,
+          "wins": -8,
+          "draws": 3,
+          "losses": 5,
+          "goals_for": 6,
+          "goals_against": 13
+        },
+        {
+          "position": 15,
+          "name": "Lorient",
+          "points": null,
+          "played": 14,
+          "goal_difference": 14,
+          "wins": -10,
+          "draws": 3,
+          "losses": 5,
+          "goals_for": 6,
+          "goals_against": 18
+        },
+        {
+          "position": 16,
+          "name": "Nantes",
+          "points": 1,
+          "played": 11,
+          "goal_difference": 15,
+          "wins": -11,
+          "draws": 2,
+          "losses": 5,
+          "goals_for": 8,
+          "goals_against": 13
+        },
+        {
+          "position": 17,
+          "name": "Metz",
+          "points": null,
+          "played": 11,
+          "goal_difference": 14,
+          "wins": -17,
+          "draws": 3,
+          "losses": 2,
+          "goals_for": 9,
+          "goals_against": 14
+        },
+        {
+          "position": 18,
+          "name": "Auxerre",
+          "points": null,
+          "played": 9,
+          "goal_difference": 14,
+          "wins": -12,
+          "draws": 2,
+          "losses": 3,
+          "goals_for": 9,
+          "goals_against": 8
+        }
+      ]
     }
   ]
 }
