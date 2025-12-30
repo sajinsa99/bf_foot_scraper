@@ -101,15 +101,20 @@ async function main() {
       return;
     }
 
-    // default: footmercato
-    const res = await footmercato.fetchStandings();
-    const snapshot = { 
-      date: new Date().toISOString(), 
-      source: footmercato.URL, 
-      clubs: res.clubs,
-      round: Math.max(...res.clubs.map(c => c.played || 0))
-    };
-    await saveSnapshot(res.season || seasonKey, snapshot);
+    // default: footmercato - fetch general, home, and away standings
+    for (const type of ['general', 'home', 'away']) {
+      const res = await footmercato.fetchStandings(type);
+      const snapshot = { 
+        date: new Date().toISOString(), 
+        source: footmercato.URL, 
+        clubs: res.clubs,
+        round: Math.max(...res.clubs.map(c => c.played || 0)),
+        standings_type: type
+      };
+      await saveSnapshot(res.season || seasonKey, snapshot);
+      // small delay between fetches
+      await new Promise((resolve) => setTimeout(resolve, 500));
+    }
   } catch (err) {
     console.error('Error while scraping:', err && (err.stack || err.message || err));
     process.exit(2);
