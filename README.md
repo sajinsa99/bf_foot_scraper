@@ -69,18 +69,40 @@ Troubleshooting
 
 Wrapper script: `get_data.sh`
 
-For convenience a small shell wrapper `get_data.sh` is provided to call the scraper
-for Transfermarkt rounds. It accepts `SEASON MAX [MIN]`. If `MIN` is omitted it
-defaults to `MAX`.
+An enhanced shell wrapper is provided for convenient fetching and deleting of Transfermarkt data.
 
-Examples:
+**Usage:**
+```
+./get_data.sh -s=SEASON [-j=JOURNEY|-min=MIN -max=MAX] -a=ACTION
+```
+
+**Required flags:**
+- `-s=SEASON` — Season in format YYYY or YYYY/YYYY
+- `-a=ACTION` — Action to perform: `fetch` or `delete`
+
+**Optional flags:**
+- `-j=JOURNEY` — Specific journey/round to fetch or delete
+- `-min=MIN` — Minimum round for range (default: 1)
+- `-max=MAX` — Maximum round for range (default: 1)
+- `-h, --help` — Display help message
+
+**Examples:**
 
 ```bash
-# scrape season 2025, rounds 1..14
-./get_data.sh 2025 14 1
+# Fetch rounds 1-15
+./get_data.sh -s=2025 -min=1 -max=15 -a=fetch
 
-# scrape season 2025, round 14 only
-./get_data.sh 2025 14
+# Fetch only round 5 (without losing other rounds)
+./get_data.sh -s=2025 -j=5 -a=fetch
+
+# Delete entire season
+./get_data.sh -s=2025 -a=delete
+
+# Delete only round 13
+./get_data.sh -s=2025 -j=13 -a=delete
+
+# Show help
+./get_data.sh -h
 ```
 
 The wrapper uses `npm run scrape` when `npm` is available, otherwise falls back

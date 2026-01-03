@@ -49,10 +49,23 @@ async function main() {
       const season = argv.season || argv.s || String(new Date().getFullYear());
       const seasonKey = normalizeSeason(season) || '2025/2026';
 
-      if (roundArg) {
-        // Fetch standings for each round from 1 to roundArg
-        const maxRound = parseInt(roundArg, 10);
-        for (let round = 1; round <= maxRound; round++) {
+      // Support both old positional arg (roundArg) and new --min/--max flags
+      let minRound = 1;
+      let maxRound = parseInt(roundArg, 10) || 1;
+
+      if (argv.min !== undefined) minRound = parseInt(argv.min, 10);
+      if (argv.max !== undefined) maxRound = parseInt(argv.max, 10);
+
+      if (roundArg && !argv.max) {
+        // Legacy: single positional arg means fetch 1..roundArg
+        minRound = 1;
+        maxRound = parseInt(roundArg, 10);
+      }
+
+      // If min/max are specified, fetch rounds; otherwise fetch final standings for season(s)
+      if (argv.min !== undefined || argv.max !== undefined || roundArg) {
+        // Fetch standings for each round from minRound to maxRound
+        for (let round = minRound; round <= maxRound; round++) {
           console.log(`Fetching standings for season ${season}, round ${round}...`);
           const res = await transfermarkt.fetchStandings({ season: String(season), round });
           const snapshot = {
@@ -65,7 +78,8 @@ async function main() {
             snapshot_type: res.snapshot_type,
             clubs: res.clubs
           };
-          await saveSnapshot(seasonKey, snapshot, round === 1);
+          // Only clear previous data on the first round being saved
+          await saveSnapshot(seasonKey, snapshot, round === minRound);
           // small delay to be polite
           await new Promise((resDelay) => setTimeout(resDelay, 1200));
         }
@@ -98,7 +112,6 @@ async function main() {
           await new Promise((resDelay) => setTimeout(resDelay, 1200));
         }
       }
-      return;
     }
 
     // default: footmercato - fetch general, home, and away standings
