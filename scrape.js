@@ -41,7 +41,7 @@ async function main() {
     const positional = argv._ || [];
     const roundArg = positional.length > 0 ? positional[0] : null;
 
-    const source = argv.source || (roundArg ? 'transfermarkt' : 'footmercato');
+    const source = argv.source || (roundArg || argv.min !== undefined || argv.max !== undefined ? 'transfermarkt' : 'footmercato');
     const seasonOpt = argv.season || argv.s || (roundArg ? String(new Date().getFullYear()) : null);
     const seasonKey = normalizeSeason(seasonOpt) || '2025/2026';
 
@@ -112,6 +112,10 @@ async function main() {
           await new Promise((resDelay) => setTimeout(resDelay, 1200));
         }
       }
+    }
+    // Exit early after handling transfermarkt to avoid falling through to footmercato
+    if (source === 'transfermarkt') {
+      return;
     }
 
     // default: footmercato - fetch general, home, and away standings

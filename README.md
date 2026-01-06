@@ -73,33 +73,51 @@ An enhanced shell wrapper is provided for convenient fetching and deleting of Tr
 
 **Usage:**
 ```
-./get_data.sh -s=SEASON [-j=JOURNEY|-min=MIN -max=MAX] -a=ACTION
+./get_data.sh [-s=SEASON] [-j=JOURNEY] -a=ACTION [-min=MIN] [-max=MAX]
 ```
 
 **Required flags:**
-- `-s=SEASON` — Season in format YYYY or YYYY/YYYY
-- `-a=ACTION` — Action to perform: `fetch` or `delete`
+- `-a=ACTION` — Action to perform: `fetch`, `delete`, or `status`
 
 **Optional flags:**
+- `-s=SEASON` — Season in format YYYY or YYYY/YYYY (required for fetch/delete, optional for status)
 - `-j=JOURNEY` — Specific journey/round to fetch or delete
+  - Single: `-j=5`
+  - Multiple (comma-separated): `-j=13,15,17`
 - `-min=MIN` — Minimum round for range (default: 1)
-- `-max=MAX` — Maximum round for range (default: 1)
+- `-max=MAX` — Maximum round for range (default: 38)
 - `-h, --help` — Display help message
 
 **Examples:**
 
 ```bash
+# List all available seasons
+./get_data.sh -a=status
+
+# List available journeys for season 2025
+./get_data.sh -s=2025 -a=status
+
+# Check if journey 15 exists for season 2025
+./get_data.sh -s=2025 -j=15 -a=status
+# Check multiple journeys (13, 15, 17) for season 2025
+./get_data.sh -s=2025 -j=13,15,17 -a=status
 # Fetch rounds 1-15
 ./get_data.sh -s=2025 -min=1 -max=15 -a=fetch
 
 # Fetch only round 5 (without losing other rounds)
 ./get_data.sh -s=2025 -j=5 -a=fetch
 
+# Fetch multiple specific rounds (13, 15, and 17)
+./get_data.sh -s=2025 -j=13,15,17 -a=fetch
+
 # Delete entire season
 ./get_data.sh -s=2025 -a=delete
 
 # Delete only round 13
 ./get_data.sh -s=2025 -j=13 -a=delete
+
+# Delete multiple specific rounds (13, 15, and 17)
+./get_data.sh -s=2025 -j=13,15,17 -a=delete
 
 # Show help
 ./get_data.sh -h
