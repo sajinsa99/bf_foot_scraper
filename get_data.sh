@@ -124,6 +124,17 @@ if [ "$action" = "status" ]; then
             const maxRound = Math.max(...rounds);
             console.log('  Journeys: ' + minRound + ' to ' + maxRound);
             console.log('  Available: ' + rounds.join(', '));
+            
+            // Check for missing journeys
+            const missing = [];
+            for (let i = minRound; i <= maxRound; i++) {
+              if (!rounds.includes(i)) {
+                missing.push(i);
+              }
+            }
+            if (missing.length > 0) {
+              console.log('  ⚠ Missing journeys: ' + missing.join(', '));
+            }
           }
         }
       "
