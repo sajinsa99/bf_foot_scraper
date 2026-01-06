@@ -1,7 +1,7 @@
 // Create synthetic evolution data for testing charts
 const fs = require('fs');
 
-const currentData = JSON.parse(fs.readFileSync('data/standings.json', 'utf8'));
+const currentData = JSON.parse(fs.readFileSync('data/seasons.json', 'utf8'));
 const season = '2025/2026';
 let snapshots = currentData[season] || [];
 
@@ -56,5 +56,5 @@ console.log('Created', evolutionSnapshots.length, 'synthetic snapshots');
 currentData[season] = [...snapshots, ...evolutionSnapshots];
 
 // Save back
-fs.writeFileSync('data/standings.json', JSON.stringify(currentData, null, 2));
+fs.writeFileSync('data/seasons.json', JSON.stringify(currentData, null, 2));
 console.log('Saved synthetic evolution data');

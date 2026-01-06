@@ -85,7 +85,7 @@ fi
 
 # Handle status action
 if [ "$action" = "status" ]; then
-  db_file="$SCRIPT_DIR/data/standings.json"
+  db_file="$SCRIPT_DIR/data/seasons.json"
   
   if [ ! -f "$db_file" ]; then
     printf '%s\n' "Error: $db_file not found" >&2
@@ -243,7 +243,7 @@ if [ "$action" = "fetch" ]; then
 
 # Handle delete action
 elif [ "$action" = "delete" ]; then
-  db_file="$SCRIPT_DIR/data/standings.json"
+  db_file="$SCRIPT_DIR/data/seasons.json"
   if [ ! -f "$db_file" ]; then
     printf '%s\n' "Error: $db_file not found" >&2
     exit 3

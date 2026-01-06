@@ -12,7 +12,7 @@ const argv = minimist(process.argv.slice(2));
 async function saveSnapshot(seasonKey, snapshot, clearPrevious = false) {
   const dataDir = path.resolve(__dirname, 'data');
   if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
-  const dbFile = path.join(dataDir, 'standings.json');
+  const dbFile = path.join(dataDir, 'seasons.json');
   let db = {};
   if (fs.existsSync(dbFile)) {
     try { db = JSON.parse(fs.readFileSync(dbFile, 'utf8') || '{}'); } catch (err) { db = {}; }

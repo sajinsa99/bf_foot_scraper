@@ -3,7 +3,7 @@
 # bf_foot_scraper
 
 Small Node.js scraper that fetches the Ligue 1 standings from Foot Mercato and
-stores timestamped snapshots in a flat JSON DB at `data/standings.json`.
+stores timestamped snapshots in a flat JSON DB at `data/seasons.json`.
 
 Quick start
 
@@ -24,7 +24,7 @@ What it does
 - Fetches `https://www.footmercato.net/france/ligue-1/classement`.
 - Auto-detects the season string (e.g. `2025/2026`).
 - Parses the standings into an array of club objects and writes a timestamped
-	snapshot under the season key in `data/standings.json`.
+	snapshot under the season key in `data/seasons.json`.
 
 Data schema (example)
 
@@ -56,10 +56,10 @@ Data schema (example)
 Files of interest
 - `scrape.js` — CLI entry point (writes snapshots).
 - `lib/footmercato.js` — HTML parsing logic.
-- `data/standings.json` — flat JSON DB (persist snapshots here).
+- `data/seasons.json` — flat JSON DB (persist snapshots here).
 
 Notes & recommendations
-- `data/standings.json` is intended to persist historical snapshots. Keep it in the repo if you want history tracked by Git.
+- `data/seasons.json` is intended to persist historical snapshots. Keep it in the repo if you want history tracked by Git.
 - The parser uses heuristics and a fallback; it worked for the current page format but may need tweaks if Foot Mercato changes layout.
 - If you want automated updates, I can add a GitHub Action that runs the scraper on a schedule and commits the DB back to the repo.
 
