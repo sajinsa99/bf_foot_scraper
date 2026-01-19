@@ -78,8 +78,8 @@ async function main() {
             snapshot_type: res.snapshot_type,
             clubs: res.clubs
           };
-          // Only clear previous data on the first round being saved
-          await saveSnapshot(seasonKey, snapshot, round === minRound);
+          // Only clear previous data when starting from round 1
+          await saveSnapshot(seasonKey, snapshot, minRound === 1 && round === minRound);
           // small delay to be polite
           await new Promise((resDelay) => setTimeout(resDelay, 1200));
         }
