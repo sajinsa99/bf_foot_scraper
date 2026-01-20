@@ -18,6 +18,12 @@ async function saveSnapshot(seasonKey, snapshot, clearPrevious = false) {
     try { db = JSON.parse(fs.readFileSync(dbFile, 'utf8') || '{}'); } catch (err) { db = {}; }
   }
   if (clearPrevious || !db[seasonKey]) db[seasonKey] = [];
+  
+  // If round exists, remove it first (replace instead of duplicate)
+  if (snapshot.round !== undefined && snapshot.round !== null) {
+    db[seasonKey] = db[seasonKey].filter(snap => snap.round !== snapshot.round);
+  }
+  
   db[seasonKey].push(snapshot);
   fs.writeFileSync(dbFile, JSON.stringify(db, null, 2), 'utf8');
   console.log(`Saved snapshot for season ${seasonKey} (${snapshot.date}) to ${dbFile}`);
